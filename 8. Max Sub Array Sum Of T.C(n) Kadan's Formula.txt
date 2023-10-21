@@ -1,0 +1,38 @@
+import java.util.*;
+public class Main 
+{
+    public static void pair(int a[])
+    {
+        int sum=0,i,n=a.length;
+        int max=Integer.MIN_VALUE;
+        for(i=0;i<n;i++)
+        {
+            sum=sum+a[i];
+            System.out.println("Sum = "+sum);
+	    max=Math.max(sum,max);
+        	if(sum<0)
+        	{
+            	    sum=0;
+        	}
+        
+        }
+        System.out.println();
+        System.out.print("The Maximum Sub Array Sum = "+max);
+    }
+    public static void main(String arg[])
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter The Array Size : ");
+        int n = sc.nextInt();
+        System.out.print("Enter The "+n+" Elments Of The Array : ");
+        int a[]=new int[n];
+        for(int i=0;i<a.length;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        System.out.println();
+        System.out.println("The Output Is : ");
+        System.out.println();
+        pair(a);
+    }
+}
