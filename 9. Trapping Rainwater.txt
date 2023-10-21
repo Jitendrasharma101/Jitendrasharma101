@@ -1,0 +1,45 @@
+import java.util.*;
+public class Main 
+{
+    public static void trap(int height[])
+    {
+        int i,n=height.length;
+        // for leftmax bound 
+        
+        int leftmax[]=new int[n];
+        leftmax[0]=height[0];
+        for(i=1;i<n;i++)
+        {
+            leftmax[i]=Math.max(height[i],leftmax[i-1]);
+        }
+        
+        int rightmax[]=new int[n];
+        rightmax[n-1]=height[n-1];
+        for(i=n-2;i>=0;i--)
+        {
+            rightmax[i]=Math.max(height[i],rightmax[i+1]);
+        }
+        int trappedwater=0;
+        for(i=0;i<n;i++)
+        {
+        int waterlevel = Math.min(leftmax[i],rightmax[i]);
+        trappedwater+=waterlevel-height[i];
+        }
+        System.out.print(trappedwater);
+    }
+    public static void main(String arg[])
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter The Array Size : ");
+        int n = sc.nextInt();
+        System.out.print("Enter The "+n+" Elments Of The Array : ");
+        int height[]=new int[n];
+        for(int i=0;i<height.length;i++)
+        {
+            height[i]=sc.nextInt();
+        }
+        System.out.println();
+        System.out.print("Total trappedwater Is : ");
+        trap(height);
+    }
+}
