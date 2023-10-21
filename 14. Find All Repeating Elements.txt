@@ -1,0 +1,36 @@
+import java.util.*;
+public class Main 
+{
+    public static void AllRepeatingElements(int a[])
+    {
+        int i,j,n=a.length;
+        for(i=0;i<n;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                if(a[i]==a[j])
+                {
+                    System.out.print(a[i]+" ");
+                }
+            }
+        }
+        
+    }
+    public static void main(String arg[])
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter The Array Size : ");
+        int n=sc.nextInt();
+        System.out.print("Enter The "+n+" Elements : ");
+        int a[]=new int[n];
+        for(int i=0;i<a.length;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        System.out.println();
+        System.out.print("The Repeating Elements In Array Are : ");
+        System.out.print("( ");
+        AllRepeatingElements(a);
+        System.out.print(")");
+    }
+}
